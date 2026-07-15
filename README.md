@@ -147,6 +147,7 @@ Clone the Repository:
 
 Bash
 git clone https://github.com/yourusername/bakery-analytics-dashboard.git
+
 Open the Report:
 Launch Power BI Desktop and open the reports/Bakery_Analytics_Dashboard.pbix file.
 
