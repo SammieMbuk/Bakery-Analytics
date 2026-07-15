@@ -87,3 +87,80 @@ Implementation: Introduce a seasonal "Summer Chill" Menu starting in May, featur
 Action: Prevent capital from being tied up in raw ingredients during the slow season.
 
 Implementation: Scale down ingredient procurement (especially flour, dairy, and coffee beans) by 60-70% during the May–September window compared to the high-demand November–February period.
+
+🔧 Tech Stack & Tools Used
+Data Visualization: Power BI Desktop
+
+ETL & Data Cleansing: Power Query (M-Code)
+
+Data Modeling: Star Schema (Fact and Dimension Tables)
+
+Analytical Calculations: DAX (Data Analysis Expressions)
+
+🧠 DAX Showcase (Analytical Calculations)
+Showcase your ability to write clean, optimized DAX for business metrics. Copy and paste some of your core measures here. For example:
+
+1. Month-over-Month (MoM) Quantity Growth
+This measure calculates the percentage change in the quantity of goods sold compared to the previous month, crucial for tracking seasonal transitions.
+
+Code snippet
+MoM Qty Growth % = 
+VAR CurrentMonthQty = SUM('Fact_Sales'[Quantity])
+VAR PreviousMonthQty = 
+    CALCULATE(
+        SUM('Fact_Sales'[Quantity]), 
+        DATEADD('Dim_Calendar'[Date], -1, MONTH)
+    )
+RETURN
+    DIVIDE(CurrentMonthQty - PreviousMonthQty, PreviousMonthQty, 0)
+2. Peak Shift Identification
+A conditional logical measure used to dynamically classify high-volume sales periods for operational alerting.
+
+Code snippet
+Sales Volume Category = 
+IF(
+    [Total Quantity] > 8000, 
+    "High Demand (Critical Staffing)", 
+    "Standard Demand"
+)
+🗂️ Repository Structure
+Organizing your GitHub files logically makes it easy for others to explore your project.
+
+Plaintext
+├── data/
+│   ├── raw_bakery_transactions.csv    # Original uncleaned dataset
+│   └── cleaned_bakery_data.csv        # Processed dataset ready for modeling
+├── reports/
+│   ├── Bakery_Analytics_Dashboard.pbix # Interactive Power BI file
+│   └── Dashboard_Preview.pdf          # Static PDF export for quick viewing
+├── assets/
+│   └── dashboard_screenshot.png       # Dashboard image used in README
+└── README.md                          # Project documentation (this file)
+# 🚀 How to Run/Replicate This Project
+## Prerequisites
+Power BI Desktop (Free download)
+
+Raw data files located in the /data directory of this repo.
+
+Steps to Run locally
+Clone the Repository:
+
+Bash
+git clone https://github.com/yourusername/bakery-analytics-dashboard.git
+Open the Report:
+Launch Power BI Desktop and open the reports/Bakery_Analytics_Dashboard.pbix file.
+
+Update Data Source Settings (if paths break):
+
+Go to Home > Transform Data > Data Source Settings.
+
+Change the source path of the tables to point to your local copy of the CSV files in the /data folder.
+
+Click Close & Apply.
+
+🔮 Future Roadmap & Enhancements
+Predictive Demand Forecasting: Integrate a Python/R script directly into the Power BI model to run time-series forecasting (e.g., ARIMA or Prophet models) to predict peak holiday sales.
+
+Customer Cohort Analysis: If customer IDs are introduced in a future data iteration, build cohort retention charts to analyze repeat-purchase frequencies.
+
+Automated Cloud Refresh: Move the dataset to an Azure SQL Database or SharePoint folder to configure scheduled automatic refreshes on the Power BI Service.
