@@ -88,16 +88,18 @@ Action: Prevent capital from being tied up in raw ingredients during the slow se
 
 Implementation: Scale down ingredient procurement (especially flour, dairy, and coffee beans) by 60-70% during the May–September window compared to the high-demand November–February period.
 
-🔧 Tech Stack & Tools Used
-Data Visualization: Power BI Desktop
 
-ETL & Data Cleansing: Power Query (M-Code)
+# 🔧 Tech Stack & Tools Used
 
-Data Modeling: Star Schema (Fact and Dimension Tables)
+- Data Visualization: Power BI Desktop
 
-Analytical Calculations: DAX (Data Analysis Expressions)
+- ETL & Data Cleansing: Power Query (M-Code)
 
-🧠 DAX Showcase (Analytical Calculations)
+- Data Modeling: Star Schema (Fact and Dimension Tables)
+
+# Analytical Calculations: DAX (Data Analysis Expressions)
+
+# 🧠 DAX Showcase (Analytical Calculations)
 Showcase your ability to write clean, optimized DAX for business metrics. Copy and paste some of your core measures here. For example:
 
 1. Month-over-Month (MoM) Quantity Growth
@@ -113,6 +115,7 @@ VAR PreviousMonthQty =
     )
 RETURN
     DIVIDE(CurrentMonthQty - PreviousMonthQty, PreviousMonthQty, 0)
+    
 2. Peak Shift Identification
 A conditional logical measure used to dynamically classify high-volume sales periods for operational alerting.
 
@@ -123,6 +126,7 @@ IF(
     "High Demand (Critical Staffing)", 
     "Standard Demand"
 )
+
 🗂️ Repository Structure
 Organizing your GitHub files logically makes it easy for others to explore your project.
 
@@ -136,8 +140,9 @@ Plaintext
 ├── assets/
 │   └── dashboard_screenshot.png       # Dashboard image used in README
 └── README.md                          # Project documentation (this file)
+
 # 🚀 How to Run/Replicate This Project
-## Prerequisites
+Prerequisites
 Power BI Desktop (Free download)
 
 Raw data files located in the /data directory of this repo.
@@ -147,7 +152,6 @@ Clone the Repository:
 
 Bash
 git clone https://github.com/yourusername/bakery-analytics-dashboard.git
-
 Open the Report:
 Launch Power BI Desktop and open the reports/Bakery_Analytics_Dashboard.pbix file.
 
@@ -159,7 +163,7 @@ Change the source path of the tables to point to your local copy of the CSV file
 
 Click Close & Apply.
 
-🔮 Future Roadmap & Enhancements
+# 🔮 Future Roadmap & Enhancements
 Predictive Demand Forecasting: Integrate a Python/R script directly into the Power BI model to run time-series forecasting (e.g., ARIMA or Prophet models) to predict peak holiday sales.
 
 Customer Cohort Analysis: If customer IDs are introduced in a future data iteration, build cohort retention charts to analyze repeat-purchase frequencies.
