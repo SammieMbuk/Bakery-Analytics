@@ -169,3 +169,8 @@ Predictive Demand Forecasting: Integrate a Python/R script directly into the Pow
 Customer Cohort Analysis: If customer IDs are introduced in a future data iteration, build cohort retention charts to analyze repeat-purchase frequencies.
 
 Automated Cloud Refresh: Move the dataset to an Azure SQL Database or SharePoint folder to configure scheduled automatic refreshes on the Power BI Service.
+
+
+[Contact Me Here](https://wa.me/+2347034572237/)
+
+[See More Projects Here](https://www.datascienceportfol.io/sammiembuk3)
